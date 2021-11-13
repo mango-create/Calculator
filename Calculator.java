@@ -26,7 +26,6 @@ public class Calculator implements ActionListener{
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(150, 150, 150));
 		
-		
 		textfield = new JTextField();
 		textfield.setHorizontalAlignment(SwingConstants.RIGHT);
 		textfield.setBounds(50, 25, 300, 50);
@@ -54,29 +53,25 @@ public class Calculator implements ActionListener{
 		functionButtons[8] = negButton;
 		
 		for (int i = 0; i< 9; i++) {
-
-				if (i == 6 || i == 7 || i == 8) {
-					functionButtons[i].setFont(smallFont);
-				} else {
-					functionButtons[i].setFont(myFont);
-				}
-				
-				if (i == 0 ||i == 1 || i == 2 || i == 3) {
-					functionButtons[i].setOpaque(true);
-					functionButtons[i].setBackground(Color.orange);
-					functionButtons[i].setBorderPainted(false);
-				} 
-				functionButtons[i].addActionListener(this);
-				functionButtons[i].setFocusable(false);
+			if (i == 6 || i == 7 || i == 8) {
+				functionButtons[i].setFont(smallFont);
+			} else {
+				functionButtons[i].setFont(myFont);
+			}
+			if (i == 0 ||i == 1 || i == 2 || i == 3) {
+				functionButtons[i].setOpaque(true);
+				functionButtons[i].setBackground(Color.orange);
+				functionButtons[i].setBorderPainted(false);
+			} 
+			functionButtons[i].addActionListener(this);
+			functionButtons[i].setFocusable(false);
 		}
-		
 		for (int i = 0; i < 10; i++) {
 			numberButtons[i] = new JButton(String.valueOf(i));
 			numberButtons[i].addActionListener(this);
 			numberButtons[i].setFont(myFont);
 			numberButtons[i].setFocusable(false);
 		}
-		
 		negButton.setBounds(50, 430, 100, 50);
 		delButton.setBounds(150, 430, 100, 50);
 		clrButton.setBounds(250, 430, 100, 50);
@@ -122,11 +117,9 @@ public class Calculator implements ActionListener{
 				textfield.setText(textfield.getText().concat(String.valueOf(i)));
 			}
 		}
-		
 		if (e.getSource() ==decButton){
 			textfield.setText(textfield.getText().concat("."));
 		}
-		
 		if(e.getSource() == addButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '+';
@@ -137,19 +130,16 @@ public class Calculator implements ActionListener{
 			operator = '-';
 			textfield.setText("");
 		}
-		
 		if(e.getSource() == mulButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '*';
 			textfield.setText("");
 		}
-		
 		if(e.getSource() == divButton) {
 			num1 = Double.parseDouble(textfield.getText());
 			operator = '÷';
 			textfield.setText("");
 		}
-		
 		if(e.getSource() == equButton) {
 			num2 = Double.parseDouble(textfield.getText());
 			
@@ -174,7 +164,6 @@ public class Calculator implements ActionListener{
 			} else {
 				textfield.setText(String.format("%s", result));
 			}
-			
 			num1 = result;
 		}
 		
